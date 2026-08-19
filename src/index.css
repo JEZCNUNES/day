@@ -1,0 +1,195 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-wine-main: #520012;
+    --color-wine-dark: #3b000d;
+    --color-wine-obsidian: #180408;
+    --color-wine-light: #7c0a22;
+    
+    --color-beige-main: #dcbb9d;
+    --color-beige-light: #f3e5d8;
+    --color-beige-gold: #ddceac;
+    
+    --color-cream-bg: #180408;
+    --color-text-main: #ffffff;
+    --color-text-muted: #dcbb9d;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #180408;
+    color: #ffffff;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-serif-luxury {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  .font-script {
+    font-family: 'Alex Brush', cursive !important;
+  }
+}
+
+/* Custom Design Tokens & Colors */
+.font-script {
+  font-family: 'Alex Brush', cursive !important;
+}
+
+.text-wine {
+  color: #520012;
+}
+
+.bg-wine {
+  background-color: #520012;
+}
+
+.text-beige {
+  color: #dcbb9d;
+}
+
+.bg-beige {
+  background-color: #dcbb9d;
+}
+
+/* Shimmer & Gold Text Effects */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #f3e5d8 40%, #dcbb9d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-accent-text {
+  background: linear-gradient(135deg, #f3e5d8 0%, #dcbb9d 50%, #c29d7d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.wine-gradient-bg {
+  background: linear-gradient(135deg, #520012 0%, #3b000d 50%, #180408 100%);
+}
+
+.wine-dark-bg {
+  background: linear-gradient(180deg, #180408 0%, #29030b 50%, #180408 100%);
+}
+
+/* Liquid Glass Cards Dark Theme */
+.glass-card-wine {
+  background: linear-gradient(135deg, rgba(82, 0, 18, 0.85) 0%, rgba(59, 0, 13, 0.92) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(220, 187, 157, 0.35);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.glass-card-dark {
+  background: linear-gradient(145deg, rgba(32, 4, 10, 0.9) 0%, rgba(50, 6, 16, 0.95) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(220, 187, 157, 0.25);
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.6);
+}
+
+.glass-card-gold {
+  background: linear-gradient(135deg, rgba(220, 187, 157, 0.12) 0%, rgba(82, 0, 18, 0.4) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(220, 187, 157, 0.4);
+  box-shadow: 0 20px 40px -15px rgba(82, 0, 18, 0.3);
+}
+
+/* Keyframe Motion Presets (ui-motion & magic-animator skills) */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(0.8deg);
+  }
+}
+
+@keyframes floatReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(10px) rotate(-0.8deg);
+  }
+}
+
+.animate-float {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatReverse 6s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.65;
+    transform: scale(1.06);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+@keyframes revealRise {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0px);
+  }
+}
+
+.animate-reveal-rise {
+  animation: revealRise 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes textShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, #dcbb9d 0%, #ffffff 50%, #dcbb9d 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textShimmer 4s linear infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #180408;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #520012;
+  border-radius: 5px;
+  border: 2px solid #180408;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #dcbb9d;
+}
