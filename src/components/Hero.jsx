@@ -38,6 +38,42 @@ export default function Hero({ onOpenContact }) {
               </h1>
             </ScrollReveal>
 
+            {/* Mobile-Only Photo Showcase (Placed IMMEDIATELY after headline on mobile) */}
+            <ScrollReveal delay={250} className="w-full lg:hidden my-2">
+              <div className="relative w-full max-w-[340px] mx-auto flex justify-center items-center">
+                <img
+                  src="/images/foto-day.webp"
+                  alt="Daylene Costa"
+                  className="w-full max-w-[300px] h-auto object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.85)] pointer-events-none"
+                  onError={(e) => {
+                    e.target.src = "/images/foto-day.webp";
+                  }}
+                />
+                
+                {/* Floating Card: Bottom Right "100% PRÁTICO" (Positioned at bottom on mobile so it NEVER covers her face!) */}
+                <div className="absolute bottom-2 right-0 glass-card-wine p-2 rounded-xl text-white border border-[#dcbb9d]/50 shadow-2xl max-w-[130px] z-20">
+                  <div className="flex items-center gap-1 mb-0.5">
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#dcbb9d]" />
+                    <span className="text-[10px] font-bold tracking-wide uppercase text-[#dcbb9d]">100% PRÁTICO</span>
+                  </div>
+                  <div className="text-[9px] text-white/90 leading-tight font-light">
+                    Resultados reais no seu dia a dia.
+                  </div>
+                </div>
+
+                {/* Floating Card: Bottom Left "11+ ANOS" */}
+                <div className="absolute bottom-2 left-0 glass-card-wine p-2 rounded-xl text-white border border-[#dcbb9d] shadow-2xl max-w-[130px] z-20 flex items-center gap-2">
+                  <div className="w-7 h-7 rounded-lg bg-[#dcbb9d] text-[#520012] flex items-center justify-center font-bold text-xs font-serif shrink-0">
+                    11+
+                  </div>
+                  <div className="flex flex-col text-left">
+                    <span className="text-[10px] font-bold text-white leading-tight">Anos Mercado</span>
+                    <span className="text-[8px] text-[#dcbb9d] font-light">Executiva</span>
+                  </div>
+                </div>
+              </div>
+            </ScrollReveal>
+
             {/* Subheadline / Positioning */}
             <ScrollReveal delay={300}>
               <p className="text-base sm:text-lg text-white/90 font-light leading-relaxed max-w-2xl">
@@ -71,8 +107,8 @@ export default function Hero({ onOpenContact }) {
 
           </div>
 
-          {/* Right Column: Photo + Floating Cards + Action Buttons Aligned Exactly with Left Box Bottom */}
-          <div className="lg:col-span-5 relative flex flex-col items-center justify-start pt-0 space-y-0">
+          {/* Right Column: Desktop-Only Photo + Floating Cards + Action Buttons */}
+          <div className="hidden lg:flex lg:col-span-5 relative flex-col items-center justify-start pt-0 space-y-0">
             
             {/* Main Portrait Container */}
             <ScrollReveal delay={250} className="w-full">
@@ -91,7 +127,7 @@ export default function Hero({ onOpenContact }) {
                   }}
                 />
 
-                {/* Floating Card 1: Top Right "100% PRÁTICO" */}
+                {/* Floating Card 1: Top Right "100% PRÁTICO" (Positioned high on desktop) */}
                 <div className="absolute top-12 right-0 sm:-right-4 glass-card-wine p-3.5 rounded-2xl text-white border border-[#dcbb9d]/50 shadow-2xl max-w-[180px] z-20 animate-float">
                   <div className="flex items-center gap-2 mb-1">
                     <ShieldCheck className="w-4 h-4 text-[#dcbb9d]" />

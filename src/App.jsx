@@ -17,6 +17,7 @@ import BlogListPage from './components/BlogListPage';
 import BlogPostPage from './components/BlogPostPage';
 import BlogAdminPage from './components/BlogAdminPage';
 import EventLandingPage from './components/EventLandingPage';
+import ScrollToTop from './components/ScrollToTop';
 
 export default function App() {
   const [isContactOpen, setIsContactOpen] = useState(false);
@@ -92,6 +93,9 @@ export default function App() {
 
       {/* Contact & Inquiry Modal */}
       <ContactModal isOpen={isContactOpen} onClose={handleCloseContact} />
+
+      {/* Floating Scroll to Top Button for Mobile & Desktop */}
+      <ScrollToTop />
 
     </div>
   );

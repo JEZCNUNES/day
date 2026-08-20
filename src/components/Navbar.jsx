@@ -148,29 +148,38 @@ export default function Navbar({ onOpenContact, onNavigate, currentPath = '/' })
           </button>
         </div>
 
-        {/* Mobile & Tablet Dropdown Menu */}
+        {/* Compact Mobile & Tablet Dropdown Menu */}
         {mobileMenuOpen && (
-          <div className="xl:hidden mt-3 pt-3 border-t border-[#dcbb9d]/30 flex flex-col gap-2 animate-fadeIn">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => handleLinkClick(e, link.href)}
-                className="text-sm font-medium py-2 px-3 rounded-lg text-white hover:bg-white/10 transition-colors flex items-center justify-between whitespace-nowrap"
-              >
-                <span>{link.name}</span>
-                <ChevronRight className="w-4 h-4 text-[#dcbb9d]" />
-              </a>
-            ))}
-            <div className="pt-2 border-t border-[#dcbb9d]/20 flex flex-col gap-2">
+          <div className="xl:hidden mt-2 pt-2 border-t border-[#dcbb9d]/30 space-y-2 animate-fadeIn">
+            {/* 2-Column Grid for Links to keep menu short */}
+            <div className="grid grid-cols-2 gap-1.5">
+              {navLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={(e) => handleLinkClick(e, link.href)}
+                  className={`text-xs font-semibold py-2 px-3 rounded-xl border transition-all flex items-center justify-between whitespace-nowrap ${
+                    link.isSpecial
+                      ? 'bg-[#dcbb9d] text-[#520012] border-[#dcbb9d] font-bold shadow-md'
+                      : 'bg-white/5 border-white/10 text-white hover:bg-white/15'
+                  }`}
+                >
+                  <span>{link.name}</span>
+                  <ChevronRight className={`w-3.5 h-3.5 ${link.isSpecial ? 'text-[#520012]' : 'text-[#dcbb9d]'}`} />
+                </a>
+              ))}
+            </div>
+
+            {/* Compact Action CTAs */}
+            <div className="grid grid-cols-2 gap-2 pt-1 border-t border-[#dcbb9d]/20">
               <a
                 href={WA_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full bg-[#dcbb9d]/20 text-[#dcbb9d] font-bold text-sm py-2.5 rounded-xl border border-[#dcbb9d]/40 flex items-center justify-center gap-2 whitespace-nowrap"
+                className="w-full bg-[#dcbb9d]/20 text-[#dcbb9d] font-bold text-xs py-2.5 rounded-xl border border-[#dcbb9d]/40 flex items-center justify-center gap-1.5 whitespace-nowrap"
               >
-                <MessageCircle className="w-4 h-4" />
-                <span>WhatsApp: (62) 99995-8502</span>
+                <MessageCircle className="w-3.5 h-3.5 text-[#dcbb9d]" />
+                <span>WhatsApp</span>
               </a>
 
               <button
@@ -178,10 +187,10 @@ export default function Navbar({ onOpenContact, onNavigate, currentPath = '/' })
                   setMobileMenuOpen(false);
                   onOpenContact();
                 }}
-                className="w-full bg-[#520012] text-[#dcbb9d] font-bold text-sm py-2.5 rounded-xl border border-[#dcbb9d]/40 shadow-md flex items-center justify-center gap-2 whitespace-nowrap"
+                className="w-full bg-[#520012] text-[#dcbb9d] font-bold text-xs py-2.5 rounded-xl border border-[#dcbb9d]/40 shadow-md flex items-center justify-center gap-1.5 whitespace-nowrap"
               >
-                <Sparkles className="w-4 h-4" />
-                <span>Solicitar Palestra</span>
+                <Sparkles className="w-3.5 h-3.5 text-[#dcbb9d]" />
+                <span>Palestra</span>
               </button>
             </div>
           </div>
